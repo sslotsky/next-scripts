@@ -1,3 +1,6 @@
 *.odp#
 *.odt#
 *.sw*
+~/
+node_modules/
+.next
