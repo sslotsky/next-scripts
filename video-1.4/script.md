@@ -86,7 +86,7 @@ export const App = styled.div`
 `;
 ```
 
-This is what makes `styled-components` so powerful. We can actually use real css to style our components, with the confidence that the rules won't apply to anything else. Let's repeat this process for the rest of our components. I'm going to save the logo for last, so I'll move that to the bottom.
+This is a big part of what makes `styled-components` so powerful. We can actually use real css to style our components, with the confidence that the rules won't apply to anything else. Let's repeat this process for the rest of our components. I'm going to save the logo for last, so I'll move that to the bottom.
 
 _move logo class to bottom_
 
@@ -115,14 +115,18 @@ For the logo, we'll need to use the `keyframes` utility provided by `styled-comp
 import styled, { keyframes } from "styled-components";
 ```
 
-Then just a couple quick tweaks and we can declare the `AppLogo` component as a styled image that refrences our keyframe animation.
+This function will accept the css for the keyframe animation.
 
 ```javascript
 const spin = keyframes`
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 `;
+```
 
+With this saved to a variable, we'll observe another really powerful feature of `styled-components`, which is the ability to reference variables from the CSS of other components. This gives us lots of flexibility as we'll see throughout the course. In this case we'll declare the `AppLogo` component as a styled image and use interpolation to insert the `spin` variable as the animation to use.
+
+```javascript
 export const AppLogo = styled.img`
   animation: ${spin} infinite 20s linear;
   height: 80px;
@@ -186,7 +190,7 @@ The title will just be a string that we can render within our `Title` component.
       {renderContent()}
 ```
 
-Now with our layout defined, let's update our `Home` component to make use of it. We'll get rid of the imports we don't need and bring in the Layout. Then we just need to render that component, pass in "Welcome to React" as the title, and then for the content we'll return a fragment containing the our intro text.
+Now with our layout defined, let's update our `Home` component to make use of it. We'll get rid of the imports we don't need and bring in the Layout. Then we just need to render that component, pass in "Welcome to React" as the title, and then for the content we'll return a fragment containing our intro text.
 
 ```javascript
 import React from "react";
