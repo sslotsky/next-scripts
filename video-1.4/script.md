@@ -8,7 +8,7 @@ Hello and welcome to _Building a Layout with Styled-Components_. In our last vid
 
 ![Slide 2: Summary Slide](./slide-2-summary.png)
 
-We'll start by talking briefly about the problem that `styled-components` and other CSS-in-JS techniques are trying to solve. We'll then use the library to create a set of presentational components that will be used to create a reusable layout.
+We'll start by talking briefly about some of the problems that `styled-components` and other CSS-in-JS techniques are trying to solve. We'll then use the library to create a set of presentational components that will be used to create a reusable layout.
 
 ## Content
 
@@ -59,8 +59,6 @@ Here we use the same property names that you'd see in a stylesheet, but camel ca
 ```javascript
       <p className="App-intro" style={paragraphStyles}>
 ```
-
-It's not really documented because this is implementation detail. Our average reader won't know what json-loader is anyway, so it probably doesn't make sense to mention as a "feature". Handling JSON works out of the box in all other bundlers so we just thought we need to fix it up for our Webpack setup as well. Let me know if you have any issues!
 
 _Check browser_
 
