@@ -1,17 +1,24 @@
 import React, { Component } from "react";
+import T from "prop-types";
 import Home from "./Home";
 
 class App extends Component {
+  static childContextTypes = {
+    message: T.string
+  };
+
   state = {
     message: "Hot reloading is great!"
   };
 
+  getChildContext() {
+    return { message: this.state.message };
+  }
+
   updateMessage = message => this.setState({ message });
 
   render() {
-    return (
-      <Home message={this.state.message} updateMessage={this.updateMessage} />
-    );
+    return <Home updateMessage={this.updateMessage} />;
   }
 }
 
