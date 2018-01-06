@@ -4,10 +4,12 @@
 
 ![Slide 1: Section Title Slide](./slide-1-section-title.png)
 
-Hello and welcome...
+Hello and welcome to _Getting Started With React_
+
 ![Slide 2: Section Summary Slide](./slide-2-section-summary.png)
 
-In this section, we'll see...
+In this section, we'll see how to easily generate fully functional React apps with a single command. We'll then cover the basics of React's component rendering system, have a look at CSS-in-JS using the styled-components library, and then see how to handle errors gracefully using error boundaries.
+
 ![Slide 3: Title Slide](./slide-3-title.png)
 
 Our first video will cover creating a new React application at the push of a button.
