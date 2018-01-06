@@ -18,10 +18,10 @@ Our first video will cover creating a new React application at the push of a but
 
 Webpack and babel are essential for building apps with JSX and ES6, and in the past,
 developers would have to configure these manually, which can present a major learning
-curve of its own. We now have tools like create-react-app and next.js that will build
+curve of its own. We now have tools like create-react-app that will build
 React apps for us in a single command so that we can focus immediately on writing code.
 
-So without further delay, let's create some React applications using each of these tools.
+So without further delay, let's use this to create our first React application.
 
 ## Create-React-App
 
