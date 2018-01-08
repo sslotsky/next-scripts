@@ -8,7 +8,7 @@ Hello and welcome to _Implementing Flux Minor_. In this section we'll be build a
 
 ![Slide 2: Section Summary Slide](./slide-2-section-summary.png)
 
-We'll begin by building a store that contains our application state and has the ability to make updates to it. We'll then see how to bind our data store to the view layer using subscriptions. We'll close with a reflection on the design decisions we made, like immutability and functional programming, as well as some of the limits of our design.
+We'll begin by building a store that contains our application state and has the ability to make updates to it. We'll then spend two lessons learning how to bind our data store to the view layer using subscriptions. We'll close with a reflection on the design decisions we made, like immutability and functional programming, as well as some of the limits of our design.
 
 ![Slide 3: Title Slide](./slide-3-title.png)
 
