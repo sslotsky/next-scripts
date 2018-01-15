@@ -24,12 +24,14 @@ export default function connect(selector = () => ({}), store = defaultStore) {
         store.unsubscribe(this.refresh);
       }
 
+      send = action => () => store.dispatch(action);
+
       render() {
         return (
           <Component
             {...this.props}
             {...selector(store.getState(), this.props)}
-            dispatch={store.dispatch}
+            send={this.send}
           />
         );
       }

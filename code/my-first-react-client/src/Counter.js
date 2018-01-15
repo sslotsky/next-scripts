@@ -1,16 +1,13 @@
 import React from "react";
 import connect from "./connect";
-import { increment, decrement } from "./store";
+import { inc as increment } from "./actions";
 
-export function Counter({ n, dispatch }) {
-  const inc = () => dispatch(increment);
-  const dec = () => dispatch(decrement);
-
+export function Counter({ n, step, send }) {
   return (
     <div>
-      <button onClick={inc}>+</button>
+      <button onClick={send(increment(step))}>+</button>
       <h2>{n}</h2>
-      <button onClick={dec}>-</button>
+      <button onClick={send(increment(-step))}>-</button>
     </div>
   );
 }

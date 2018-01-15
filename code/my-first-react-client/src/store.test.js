@@ -1,4 +1,5 @@
-import { increment, decrement, createStore } from "./store";
+import { createStore } from "./store";
+import { increment, decrement } from "./actions";
 
 test("increment action can increment some value n", () => {
   const state = { n: 0 };

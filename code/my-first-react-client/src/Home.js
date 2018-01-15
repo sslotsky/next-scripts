@@ -11,7 +11,7 @@ export function Home({ updateMessage }) {
         To get started, edit <code>src/App.js</code> and save to reload.
       </AppIntro>
       <Greeting />
-      <Counter />
+      <Counter step={3} />
     </React.Fragment>
   );
 }
