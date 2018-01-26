@@ -1,5 +1,7 @@
 import React, { Component } from "react";
+import { Provider } from "react-redux";
 import T from "prop-types";
+import store from "./store";
 import Home from "./Home";
 
 class App extends Component {
@@ -18,7 +20,11 @@ class App extends Component {
   updateMessage = message => this.setState({ message });
 
   render() {
-    return <Home updateMessage={this.updateMessage} />;
+    return (
+      <Provider store={store}>
+        <Home updateMessage={this.updateMessage} />
+      </Provider>
+    );
   }
 }
 
