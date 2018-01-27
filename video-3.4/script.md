@@ -163,6 +163,14 @@ https://redux.js.org/
 
 Here's a counter app a lot like ours, but the actions are plain javascript objects and then we have this `counter` function that decides how to mutate the state when an action is dispatched. We're going to see this in more detail in the next section, but it's worth talking about the difference now. Possibly the biggest advantage to doing it the Flux way is that we can capture complete information about everything that's happening in the application. These action payloads are serializable so we can very easily record the path that a user has taken in our application, which can be helpful to businesses in a number of ways. Our implementation does not support this, so we can't really call it Flux. Our store has the benefit of being really lightweight and requiring less code than Flux and Redux typically do, but this simplicity comes at a cost. It all depends on whether or not it's valuable to you to have the event history that something like Flux offers.
 
+_open redux-zero npm page_
+
+I also want to point out that although our implementation was different than Flux, it really wasn't all that original. There are a few libraries out there that take very similar approaches. `redux-zero` is a popular one that you might want to try out for yourself.
+
+_open apothecary npm page_
+
+However, if you're partial to the one we wrote, you can also download my library `apothecary`, which is almost identical to what we've done in the last few sections.
+
 ![Slide 3: Next Section Slide](./slide-3-next-section.png)
 
 That concludes our section on building a data store for React. Today we focused on the benefits and limitations of our design, with emphasis on the power of functional programming. Join us for our next section where we'll rewrite our application using Redux.
