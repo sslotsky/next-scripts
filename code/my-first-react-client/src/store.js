@@ -5,7 +5,7 @@ const initialState = {
 };
 
 function inc(state, action) {
-  return { ...state, n: state.n + action.n };
+  return { ...state, n: state.n + action.counter.n };
 }
 
 function reducer(state = initialState, action) {
@@ -17,6 +17,17 @@ function reducer(state = initialState, action) {
   }
 }
 
+const reporter = store => next => action => {
+  try {
+    return next(action);
+  } catch (err) {
+    console.log(err);
+
+    // reportingService.captureError(err);
+    // store.dispatch({ type: 'APPLICATION_ERROR' })
+  }
+};
+
 const logger = store => next => action => {
   console.log("dispatching", action);
   console.log("current state", store.getState());
@@ -27,10 +38,12 @@ const logger = store => next => action => {
 
 const async = store => next => action => {
   if (typeof action === "function") {
-    return action(store.dispatch);
+    return action(store.dispatch).catch(err => {
+      console.log(err);
+    });
   }
 
   return next(action);
 };
 
-export default createStore(reducer, applyMiddleware(async, logger));
+export default createStore(reducer, applyMiddleware(reporter, async, logger));
