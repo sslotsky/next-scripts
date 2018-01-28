@@ -1,30 +1,11 @@
-import { createStore, applyMiddleware } from "redux";
-
-const initialState = {
-  n: 0
-};
-
-function inc(state, action) {
-  return { ...state, n: state.n + action.counter.n };
-}
-
-function reducer(state = initialState, action) {
-  switch (action.type) {
-    case "INCREMENT":
-      return inc(state, action);
-    default:
-      return state;
-  }
-}
+import { createStore, applyMiddleware, combineReducers } from "redux";
+import { reducer as counter } from "./ducks/counter";
 
 const reporter = store => next => action => {
   try {
     return next(action);
   } catch (err) {
     console.log(err);
-
-    // reportingService.captureError(err);
-    // store.dispatch({ type: 'APPLICATION_ERROR' })
   }
 };
 
@@ -45,5 +26,7 @@ const async = store => next => action => {
 
   return next(action);
 };
+
+const reducer = combineReducers({ counter });
 
 export default createStore(reducer, applyMiddleware(reporter, async, logger));
