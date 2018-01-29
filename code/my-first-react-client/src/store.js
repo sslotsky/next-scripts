@@ -1,5 +1,6 @@
 import { createStore, applyMiddleware, combineReducers } from "redux";
 import { reducer as counter } from "./ducks/counter";
+import { reducer as jokes } from "./ducks/jokes";
 
 const reporter = store => next => action => {
   try {
@@ -27,6 +28,6 @@ const async = store => next => action => {
   return next(action);
 };
 
-const reducer = combineReducers({ counter });
+const reducer = combineReducers({ counter, jokes });
 
 export default createStore(reducer, applyMiddleware(reporter, async, logger));
