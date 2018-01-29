@@ -4,7 +4,8 @@ const initialState = {
   page: 1,
   limit: 10,
   totalPages: 1,
-  results: []
+  results: [],
+  filters: { term: "" }
 };
 
 function received(state, action) {
@@ -24,6 +25,16 @@ function nextPage(state) {
   };
 }
 
+function setFilter(state, action) {
+  return {
+    ...state,
+    filters: {
+      ...state.filters,
+      [action.filter]: action.value
+    }
+  };
+}
+
 function previousPage(state) {
   return {
     ...state,
@@ -34,6 +45,7 @@ function previousPage(state) {
 const RECEIVED = "jokes/RECEIVED";
 const NEXT_PAGE = "jokes/NEXT_PAGE";
 const PREVIOUS_PAGE = "jokes/PREVIOUS_PAGE";
+const SET_FILTER = "jokes/SET_FILTER";
 
 export function reducer(state = initialState, action) {
   switch (action.type) {
@@ -43,6 +55,8 @@ export function reducer(state = initialState, action) {
       return nextPage(state);
     case PREVIOUS_PAGE:
       return previousPage(state);
+    case SET_FILTER:
+      return setFilter(state, action);
     default:
       return state;
   }
@@ -51,6 +65,7 @@ export function reducer(state = initialState, action) {
 export const actions = {
   next: () => ({ type: NEXT_PAGE }),
   previous: () => ({ type: PREVIOUS_PAGE }),
+  setFilter: (filter, value) => ({ type: SET_FILTER, filter, value }),
   search: (term, page, limit) => dispatch =>
     search({ term, page, limit }).then(resp =>
       dispatch({ type: RECEIVED, jokes: resp.data })

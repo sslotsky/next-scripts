@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
 import { actions } from "./ducks/jokes";
+import Search from "./Search";
 
 const Container = styled.div`
   width: 50%;
@@ -32,6 +33,7 @@ export function Filters({ page, totalPages, next, previous }) {
   return (
     <Container>
       <Content>
+        <Search />
         <Flipper disabled={page === 1} onClick={previous}>&lt;</Flipper>
         <PageInfo>Page {page} of {totalPages}</PageInfo>
         <Flipper disabled={page === totalPages} onClick={next}>&gt;</Flipper>
