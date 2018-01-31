@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import { actions } from "./ducks/jokes";
 import Filters from "./Filters";
 
@@ -13,16 +14,20 @@ const JokeList = styled.div`
   padding: 2rem;
   background-color: lightgray;
   width: 50%;
-  height: 100vh;
+  height: 100%;
 `;
 
-const Joke = styled.div`
+const JokeLink = ({ id, ...props }) => <Link to={`/jokes/${id}`} {...props} />;
+
+const Joke = styled(JokeLink)`
   display: flex;
   align-items: center;
   padding: 2rem 1rem;
   background-color: white;
   border: 1px solid darkgray;
   text-align: left;
+  text-decoration: none;
+  color: black;
 
   &:hover {
     background-color: forestgreen;
@@ -52,7 +57,7 @@ export class Jokes extends Component {
       <Content>
         <JokeList>
           {results.map(j => (
-            <Joke key={j.id}>
+            <Joke key={j.id} id={j.id}>
               {j.joke}
             </Joke>
           ))}
