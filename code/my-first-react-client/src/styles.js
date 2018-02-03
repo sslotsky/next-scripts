@@ -58,7 +58,7 @@ export const Input = styled.input`
   font-size: 2rem;
   border-radius: .25rem;
   padding: .5rem;
-  border-color: darkgray;
+  border-color: ${props => (props.error ? "red" : "darkgray")};
   width: ${calculateWidth};
 `;
 

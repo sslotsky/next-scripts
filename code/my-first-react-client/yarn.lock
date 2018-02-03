@@ -2007,6 +2007,10 @@ elliptic@^6.0.0:
     minimalistic-assert "^1.0.0"
     minimalistic-crypto-utils "^1.0.0"
 
+email-validator@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/email-validator/-/email-validator-1.1.1.tgz#b07f3be7bac1dc099bc43e75f6ae399f552d5a80"
+
 emoji-regex@^6.1.0:
   version "6.5.1"
   resolved "https://registry.yarnpkg.com/emoji-regex/-/emoji-regex-6.5.1.tgz#9baea929b155565c11ea41c6626eaa65cef992c2"
@@ -2549,6 +2553,10 @@ fill-range@^2.1.0:
 filled-array@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/filled-array/-/filled-array-1.1.0.tgz#c3c4f6c663b923459a9aa29912d2d031f1507f84"
+
+final-form@^4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/final-form/-/final-form-4.2.0.tgz#8743efbb75933ea3c7d1718b5c5ab9eb23b60026"
 
 finalhandler@1.1.0:
   version "1.1.0"
@@ -5167,6 +5175,10 @@ react-error-overlay@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-3.0.0.tgz#c2bc8f4d91f1375b3dad6d75265d51cd5eeaf655"
 
+react-final-form@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/react-final-form/-/react-final-form-3.1.0.tgz#79711cd54631354981562cac3f924f786be2c232"
+
 react-scripts@1.0.17:
   version "1.0.17"
   resolved "https://registry.yarnpkg.com/react-scripts/-/react-scripts-1.0.17.tgz#c30029123b561a060227af4d7797d50a222d3fbf"
@@ -6319,6 +6331,10 @@ validate-npm-package-license@^3.0.1:
   dependencies:
     spdx-correct "~1.0.0"
     spdx-expression-parse "~1.0.0"
+
+validate-this@^1.4.1:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/validate-this/-/validate-this-1.4.1.tgz#84d30e561d733aff09297245f904562a1fa151f5"
 
 vary@~1.1.2:
   version "1.1.2"

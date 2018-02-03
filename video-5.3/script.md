@@ -1,4 +1,4 @@
-# Video 5.2
+# Video 5.3
 
 ## Opening Slides
 
@@ -69,9 +69,11 @@ export default dataLoader(
 )(Joke);
 ```
 
+Notice we're not using the state in this case because we don't need to because the state is just the text that we're going to replace. If our state variable were an object with the joke text attached to it, then we'd need to do a spread over the state object like we've seen in other videos.
+
 _open dataLoader.js_
 
-So now we need to figure out how to implement these mutations. For starters we need to add a `mutators` argument to our `dataLoader`, which will default to an empty object.
+Next we need to figure out how to implement these mutations. For starters we need to add a `mutators` argument to our `dataLoader`, which will default to an empty object.
 
 ```javascript
 export default function dataLoader(propName, loader, mutators = {}) {
@@ -218,4 +220,4 @@ That's all the time we have for this lesson. Today we learned a way to add reusa
 
 ![Slide 3: Next Video Slide](./slide-3-next-video.png)
 
-Join us for our next video where we'll write more reusable container code to handle additional concerns.
+Join us for our next video where we'll learn how to use final-form to manage form state.
