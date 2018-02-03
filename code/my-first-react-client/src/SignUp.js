@@ -54,7 +54,7 @@ function FormInput({ input, meta, placeholder = "", type = "text" }) {
   );
 }
 
-export default function SingUp() {
+export default function SignUp() {
   return (
     <Container>
       <Content>

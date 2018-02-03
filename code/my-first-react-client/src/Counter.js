@@ -1,21 +1,34 @@
 import React from "react";
-import { connect } from "react-redux";
-import { actions } from "./ducks/counter";
+import type { Context } from "react";
 
-export function Counter({ n, inc, dec }) {
+type CounterState = { n: number };
+
+const initialState = { n: 0 };
+
+const CounterContext: Context<CounterState> = React.createContext(initialState);
+
+function Count() {
   return (
-    <div>
-      <button onClick={inc}>+</button>
-      <h2>{n}</h2>
-      <button onClick={dec}>-</button>
-    </div>
+    <CounterContext.Consumer>
+      {theme => <h1>{theme.n}</h1>}
+    </CounterContext.Consumer>
   );
 }
 
-export default connect(
-  state => state.counter,
-  (dispatch, props) => ({
-    inc: () => dispatch(actions.increment(props.step)),
-    dec: () => dispatch(actions.increment(-props.step))
-  })
-)(Counter);
+export default class Counter extends React.Component {
+  state = initialState;
+
+  increment = n => () => this.setState(state => ({ n: state.n + n }));
+
+  render() {
+    return (
+      <CounterContext.Provider value={this.state}>
+        <div>
+          <button onClick={this.increment(1)}>+</button>
+          <Count />
+          <button onClick={this.increment(-1)}>-</button>
+        </div>
+      </CounterContext.Provider>
+    );
+  }
+}
