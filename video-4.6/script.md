@@ -65,22 +65,54 @@ The next step is to add action creators for these new action types.
 
 Now we can start writing our pagination controls.
 
+_open styles.js_
+
+We'll be using a lot of buttons over the next few videos so let's define a styled-component that we can reuse first.
+
+One feature we haven't seen yet is this attributes function that allows you to add properties to the DOM nodes that get rendered by `styled-components`. For our button, let's add a default type of "button", which is a good practice for preventing unwanted submissions.
+
+Next, I want to be able to control the button's width dynamically, and I can actually do that by interpolating a function to resolve the css value.
+
+These functions accept the props passed into the component as input, and they return some css value. So our `calculateWidth` function will look for a width property and use that to determine the width in percents. We'll default to 100.
+
+Next we'll just add a few basic styles to make it look somewhat presentable and then add some styles for when the button becomes disabled.
+
+```javascript
+const calculateWidth = ({ width = 100 }) => `${width}%`;
+
+export const Button = styled.button.attrs({
+  type: ({ type = "button" }) => type
+})`
+  width: ${calculateWidth};
+  background-color: forestgreen;
+  color: white;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  font-size: 1.25rem;
+  cursor: pointer;
+
+  &:disabled {
+    cursor: not-allowed;
+    background-color: lightgray;
+  }
+`;
+```
+
 _open Filters.js_
 
-Our component here is going to connect to the redux store and display some styled buttons that dispatch our new actions.
+Now to define our filter controls. Our component here is going to connect to the redux store and display some styled buttons that dispatch our new actions.
 
 ```javascript
 import React from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
 import { actions } from "./ducks/jokes";
+import { Button } from "./styles";
 ```
 
 This is going to go on the right side of our screen and take up half the width.
 
 We'll add a bordered box with rounded corners around all of our controls.
-
-Next we make a styled button for our flipper controls, making sure to give it a `not-allowed` cursor type when the button is disabled.
 
 Then we'll define a styled span for displaying the current page number.
 
@@ -94,16 +126,6 @@ const Content = styled.div`
   border: 1px solid lightgray;
   border-radius: 1rem;
   padding: 2rem;
-`;
-
-const Flipper = styled.button`
-  background-color: white;
-  font-size: 1.5rem;
-  cursor: pointer;
-
-  &:disabled {
-    cursor: not-allowed;
-  }
 `;
 
 const PageInfo = styled.span`
@@ -130,9 +152,13 @@ export function Filters({ page, totalPages, next, previous }) {
   return (
     <Container>
       <Content>
-        <Flipper disabled={page === 1} onClick={previous}>&lt;</Flipper>
+        <Button width={10} disabled={page === 1} onClick={previous}>
+          &lt;
+        </Button>
         <PageInfo>Page {page} of {totalPages}</PageInfo>
-        <Flipper disabled={page === totalPages} onClick={next}>&gt;</Flipper>
+        <Button width={10} disabled={page === totalPages} onClick={next}>
+          &gt;
+        </Button>
       </Content>
     </Container>
   );

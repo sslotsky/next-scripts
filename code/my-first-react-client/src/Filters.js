@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import styled from "styled-components";
 import { actions } from "./ducks/jokes";
 import Search from "./Search";
+import { Button } from "./styles";
 
 const Container = styled.div`
   width: 50%;
@@ -15,18 +16,9 @@ const Content = styled.div`
   padding: 2rem;
 `;
 
-const Flipper = styled.button`
-  background-color: white;
-  font-size: 1.5rem;
-  cursor: pointer;
-
-  &:disabled {
-    cursor: not-allowed;
-  }
-`;
-
 const PageInfo = styled.span`
   margin: 1rem;
+  font-size: 1.5rem;
 `;
 
 export function Filters({ page, totalPages, next, previous }) {
@@ -34,9 +26,13 @@ export function Filters({ page, totalPages, next, previous }) {
     <Container>
       <Content>
         <Search />
-        <Flipper disabled={page === 1} onClick={previous}>&lt;</Flipper>
+        <Button width={10} disabled={page === 1} onClick={previous}>
+          &lt;
+        </Button>
         <PageInfo>Page {page} of {totalPages}</PageInfo>
-        <Flipper disabled={page === totalPages} onClick={next}>&gt;</Flipper>
+        <Button width={10} disabled={page === totalPages} onClick={next}>
+          &gt;
+        </Button>
       </Content>
     </Container>
   );

@@ -56,54 +56,45 @@ Then we need an action creator to trigger this mutation.
 
 This will take the target filter and the desired value and pass them into the payload. The next thing we'll do is write a component that takes user input and sets it as the value of the `term` filter.
 
+_open styles.js_
+
+Let's start with a bit of styled-component work to make our view look presentable. We're going to render a form with a text input and a submit button, and we'll need new components for all but the latter.
+
+We'll also create a flex row to display the button in.
+
+```javascript
+export const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+
+export const Input = styled.input`
+  font-size: 2rem;
+  border-radius: .25rem;
+  padding: .5rem;
+  border-color: darkgray;
+  width: ${calculateWidth};
+`;
+
+export const Row = styled.div`
+  display: flex;
+  justify-content: space-around;
+  margin: 1rem 0;
+  width: ${calculateWidth};
+`;
+```
+
 _open Search.js_
 
-As we've seen before, we'll be connecting the component to the redux store so that it has access to the state and actions we need, and we'll also be using styled components to make it look presentable.
+As we've seen before, we'll be connecting the component to the redux store so that it has access to the state and actions we need. We'll also bring in some styled-components.
 
 ```javascript
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import styled, { css } from "styled-components";
 import { actions } from "./ducks/jokes";
-```
-
-We're going to render a form with a text input and a submit button.
-
-These are going to share some of the same styles, so we'll use the `css` function from styled components to declare a block of css to be reused.
-
-Then we can declare a text input that uses these styles.
-
-Then for our submit button, we're going to use a handy method that lets us add attributes to the native node.
-
-In this case, we want to give it a type of `submit`.
-
-Now we'll insert our `control` styles and add a background and a couple other styles.
-
-```javascript
-const Form = styled.form`
-  padding: 1rem;
-`;
-
-const control = css`
-  border-radius: .25rem;
-  padding: .25rem;
-  border-color: darkgray;
-  width: 60%;
-`;
-
-const Input = styled.input`
-  ${control}
-`;
-
-const Submit = styled.button.attrs({
-  type: "submit"
-})`
-  ${control}
-  background-color: forestgreen;
-  margin-top: 1rem;
-  color: white;
-  cursor: pointer;
-`;
+import { Form, Row, Input, Button } from "./styles";
 ```
 
 Now we can define our search component. This is going to need some state management so we can track what the user is typing into the input.
@@ -143,9 +134,9 @@ export class Search extends Component {
     return (
       <Form onSubmit={this.submit}>
         <Input value={this.state.query} onChange={this.onChange} />
-        <div>
-          <Submit>Search</Submit>
-        </div>
+        <Row>
+          <Button type="submit">Search</Button>
+        </Row>
       </Form>
     );
   }

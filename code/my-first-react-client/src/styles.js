@@ -28,3 +28,53 @@ export const AppLogo = styled.img`
   animation: ${spin} infinite 20s linear;
   height: 80px;
 `;
+
+const calculateWidth = ({ width = 100 }) => `${width}%`;
+
+export const Button = styled.button.attrs({
+  type: ({ type = "button" }) => type
+})`
+  width: ${calculateWidth};
+  background-color: forestgreen;
+  color: white;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  font-size: 1.25rem;
+  cursor: pointer;
+
+  &:disabled {
+    cursor: not-allowed;
+    background-color: lightgray;
+  }
+`;
+
+export const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const Input = styled.input`
+  font-size: 2rem;
+  border-radius: .25rem;
+  padding: .5rem;
+  border-color: darkgray;
+  width: ${calculateWidth};
+`;
+
+export const Row = styled.div`
+  display: flex;
+  justify-content: space-around;
+  margin: 1rem 0;
+  width: ${calculateWidth};
+`;
+
+export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const Content = Container.extend`
+  width: 70%;
+`;
