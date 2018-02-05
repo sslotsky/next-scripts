@@ -8,7 +8,7 @@ Hello and welcome to _List Pagination_. Our last two videos focused on using mid
 
 ![Slide 2: Summary Slide](./slide-2-summary.png)
 
-First we'll learn how to combine multiple reducers in Redux so that our state management code will scale better. Then we'll write some new Redux code that manages a paginated list and a component to display it.
+First we'll learn how to combine multiple reducers in Redux so that our state management code will scale better. Then we'll write some new Redux code to retrieve a list of data from an API a component to execute it.
 
 ## Content
 

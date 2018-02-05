@@ -8,7 +8,7 @@ Hello and welcome to _Form Management in React_. In our last two videos we saw a
 
 ![Slide 2: Summary Slide](./slide-2-summary.png)
 
-We'll start by setting up the final-form library to display a simple form. Then we'll hook up validation logic and add some more inputs to demonstrate the capabilities of our setup.
+We'll start by setting up the final-form library to display a simple form. Then we'll write custom form components and add some simple validation.
 
 ## Content
 
