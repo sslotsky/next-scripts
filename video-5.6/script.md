@@ -87,13 +87,13 @@ Now here's where it gets interesting. Instead of displaying the `n` here, we're 
 
 This will render a context consumer.
 
-These consumers accept render props as children, so we provide a function which accepts the `theme` and returns our heading tag, with the value for `n` coming from the `theme` itself. That means that we don't have to pass `n` into our `Count` component as a prop.
+These consumers accept render props as children, so we provide a function which accepts the context data and returns our heading tag, with the value for `n` coming from the context data itself. That means that we don't have to pass `n` into our `Count` component as a prop.
 
 ```JavaScript
 function Count() {
   return (
     <CounterContext.Consumer>
-      {theme => <h1>{theme.n}</h1>}
+      {counter => <h1>{counter.n}</h1>}
     </CounterContext.Consumer>
   );
 }
